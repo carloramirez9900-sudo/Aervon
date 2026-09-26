@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+!.env.railway.backend.example
+!.env.signer.example
+*.log
+coverage/
+.DS_Store
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+!frontend/.env.railway.example
+frontend/*.tsbuildinfo

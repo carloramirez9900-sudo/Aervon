@@ -1,0 +1,7 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm install --omit=dev"
+[deploy]
+startCommand = "npm run start:signer"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
