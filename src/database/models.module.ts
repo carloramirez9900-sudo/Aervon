@@ -1,0 +1,60 @@
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import {
+  CycleParticipation,
+  CycleParticipationSchema,
+  LedgerAccount,
+  LedgerAccountSchema,
+  LedgerEntry,
+  LedgerEntrySchema,
+  LedgerTransaction,
+  LedgerTransactionSchema,
+  ReferralCommission,
+  ReferralCommissionSchema,
+  TradingCycle,
+  TradingCycleSchema,
+  UnifiedTrade,
+  UnifiedTradeSchema,
+  User,
+  UserSchema,
+  Withdrawal,
+  WithdrawalSchema,
+  WithdrawalSignerLock,
+  WithdrawalSignerLockSchema,
+  InvestmentPosition,
+  InvestmentPositionSchema,
+  VerificationChallenge,
+  VerificationChallengeSchema,
+  AuthSession,
+  AuthSessionSchema,
+  DepositAddress, DepositAddressSchema, BlockchainDeposit, BlockchainDepositSchema, ChainCursor, ChainCursorSchema, WalletIndexCounter, WalletIndexCounterSchema,
+  AdminAuditLog, AdminAuditLogSchema, PlatformSetting, PlatformSettingSchema,
+} from './schemas';
+
+const models = [
+  { name: User.name, schema: UserSchema },
+  { name: LedgerAccount.name, schema: LedgerAccountSchema },
+  { name: LedgerTransaction.name, schema: LedgerTransactionSchema },
+  { name: LedgerEntry.name, schema: LedgerEntrySchema },
+  { name: TradingCycle.name, schema: TradingCycleSchema },
+  { name: UnifiedTrade.name, schema: UnifiedTradeSchema },
+  { name: CycleParticipation.name, schema: CycleParticipationSchema },
+  { name: ReferralCommission.name, schema: ReferralCommissionSchema },
+  { name: Withdrawal.name, schema: WithdrawalSchema },
+  { name: WithdrawalSignerLock.name, schema: WithdrawalSignerLockSchema },
+  { name: InvestmentPosition.name, schema: InvestmentPositionSchema },
+  { name: VerificationChallenge.name, schema: VerificationChallengeSchema },
+  { name: AuthSession.name, schema: AuthSessionSchema },
+  { name: DepositAddress.name, schema: DepositAddressSchema },
+  { name: BlockchainDeposit.name, schema: BlockchainDepositSchema },
+  { name: ChainCursor.name, schema: ChainCursorSchema },
+  { name: WalletIndexCounter.name, schema: WalletIndexCounterSchema },
+  { name: AdminAuditLog.name, schema: AdminAuditLogSchema },
+  { name: PlatformSetting.name, schema: PlatformSettingSchema },
+];
+
+@Module({
+  imports: [MongooseModule.forFeature(models)],
+  exports: [MongooseModule],
+})
+export class ModelsModule {}
