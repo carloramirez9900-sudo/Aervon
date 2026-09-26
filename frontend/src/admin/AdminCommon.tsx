@@ -1,0 +1,6 @@
+import { getLanguage, tr } from '../i18n';
+import { AlertTriangle, CheckCircle2, Clock3 } from 'lucide-react';
+export function AdminHeading({eyebrow,title,subtitle}:{eyebrow:string;title:string;subtitle:string}){return <header className="admin-heading"><span>{tr(eyebrow)}</span><h1>{tr(title)}</h1><p>{tr(subtitle)}</p></header>}
+export function Metric({label,value,detail,tone='normal'}:{label:string;value:string|number;detail?:string;tone?:'normal'|'good'|'warn'|'danger'}){return <div className={`admin-metric admin-metric--${tone}`}><span>{tr(label)}</span><strong>{value}</strong>{detail&&<small>{tr(detail)}</small>}</div>}
+export function Status({value}:{value:string|boolean}){const s=String(value);const ok=['OK','ACTIVE','CONFIRMED','CREDITED','SWEPT','RUNNING','true'].includes(s);const warn=['WAITING_GAS','WAITING_LIQUIDITY','PENDING','SCHEDULED','SECURITY_HOLD'].includes(s);const Icon=ok?CheckCircle2:warn?Clock3:AlertTriangle;return <span className={`admin-status ${ok?'ok':warn?'warn':'neutral'}`}><Icon size={11}/>{tr(s)}</span>}
+export const money=(v:string|number|null|undefined)=>`${Number(v??0).toLocaleString(getLanguage() === 'es' ? 'es-419' : 'en-US',{minimumFractionDigits:2,maximumFractionDigits:2})} USDT`;
